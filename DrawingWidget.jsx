@@ -37,7 +37,6 @@ DrawingWidget = React.createClass({
         // Timeout needed otherwise the last stroke doesn't get saved since onMouseEnd
         // triggers before fabric is done adding the stroke to the canvas.
         window.setTimeout(() => {
-            console.log(this.canvas);
             this.props.onFinished(this.canvas.toJSON(), this.canvas.toDataURL('png'));
         }, 0);
     },
@@ -81,6 +80,11 @@ DrawingWidget = React.createClass({
         if (this.canvas._objects.length > 0) {
             this.props.handleSubmit(event);
             this.clear();
+            
+            $(this.refs.drawSubmit).removeClass("inactive").addClass("inactive");
+            window.setTimeout(() => {
+                $(this.refs.drawSubmit).removeClass("inactive");
+            }, 4000);
         }
     },
 
@@ -105,7 +109,7 @@ DrawingWidget = React.createClass({
                         onClick={this.setEraser}>E</div>
                     <div className="draw-control draw-undo" onClick={this.undo}>Undo</div>
                     <div className="draw-control draw-clear" onClick={this.clear}>Clear</div>
-                    <div className="draw-control draw-submit" onClick={this.send}>Send</div>
+                    <div className="draw-control draw-submit" ref="drawSubmit" onClick={this.send}>Send</div>
                 </div>
             </div>
         );

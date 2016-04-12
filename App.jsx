@@ -8,12 +8,12 @@ App = React.createClass({
 
     getMeteorData() {
         return {
-            messages: Messages.find({}, {sort: {createdAt: -1}}).fetch()
+            messages: Messages.find({}, {sort: {createdAt: -1}, limit:20}).fetch()
         };
     },
 
     renderMessages() {
-        return this.data.messages.map((message) => {
+        return this.data.messages.reverse().map((message) => {
             return <Message
                         key={message._id}
                         message={message}
@@ -24,14 +24,23 @@ App = React.createClass({
     setMessageTemplate(message) {
         this.setState({selectedMessage: message});
     },
+    
+    scrollToBottom() {
+        this.refs.messagesList.scrollTop = this.refs.messagesList.scrollHeight;
+    },
 
     componentDidMount() {
+        this.scrollToBottom();
+    },
+    
+    componentDidUpdate() {
+        this.scrollToBottom();
     },
 
     render() {
         return (
             <div className="container">
-                <div id="messages-list">
+                <div id="messages-list" ref="messagesList">
                     {this.renderMessages()}
                 </div>
 
