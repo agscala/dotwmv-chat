@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2016 by original authors @ fontello.com</metadata>
+<defs>
+<font id="icons" horiz-adv-x="1000" >
+<font-face font-family="icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="circle" unicode="&#xe800;" d="M857 350q0-117-57-215t-156-156-215-58-216 58-155 156-58 215 58 215 155 156 216 58 215-58 156-156 57-215z" horiz-adv-x="857.1" />
+
+<glyph glyph-name="circle-empty" unicode="&#xe801;" d="M429 654q-83 0-153-41t-110-111-41-152 41-152 110-111 153-41 152 41 110 111 41 152-41 152-110 111-152 41z m428-304q0-117-57-215t-156-156-215-58-216 58-155 156-58 215 58 215 155 156 216 58 215-58 156-156 57-215z" horiz-adv-x="857.1" />
+
+<glyph glyph-name="ccw" unicode="&#xe802;" d="M857 350q0-87-34-166t-91-137-137-92-166-34q-96 0-183 41t-147 114q-4 6-4 13t5 11l76 77q6 5 14 5 9-1 13-7 41-53 100-82t126-29q58 0 110 23t92 61 61 91 22 111-22 111-61 91-92 61-110 23q-55 0-105-20t-90-57l77-77q17-16 8-38-10-23-33-23h-250q-15 0-25 11t-11 25v250q0 24 22 33 22 10 39-8l72-72q60 57 137 88t159 31q87 0 166-34t137-92 91-137 34-166z" horiz-adv-x="857.1" />
+
+<glyph glyph-name="down-big" unicode="&#xe803;" d="M899 386q0-30-21-50l-363-364q-22-21-51-21-29 0-50 21l-363 364q-21 20-21 50 0 29 21 51l41 41q22 21 51 21 29 0 50-21l164-164v393q0 29 21 50t51 22h71q29 0 50-22t21-50v-393l164 164q21 21 51 21 29 0 50-21l42-41q21-22 21-51z" horiz-adv-x="928.6" />
+
+<glyph glyph-name="cancel" unicode="&#xe804;" d="M724 112q0-22-15-38l-76-76q-16-15-38-15t-38 15l-164 165-164-165q-16-15-38-15t-38 15l-76 76q-16 16-16 38t16 38l164 164-164 164q-16 16-16 38t16 38l76 76q16 16 38 16t38-16l164-164 164 164q16 16 38 16t38-16l76-76q15-15 15-38t-15-38l-164-164 164-164q15-15 15-38z" horiz-adv-x="785.7" />
+
+<glyph glyph-name="up-big" unicode="&#xe805;" d="M899 308q0-28-21-50l-42-42q-21-21-50-21-30 0-51 21l-164 164v-393q0-29-20-47t-51-19h-71q-30 0-51 19t-21 47v393l-164-164q-20-21-50-21t-50 21l-42 42q-21 21-21 50 0 30 21 51l363 363q20 21 50 21 30 0 51-21l363-363q21-22 21-51z" horiz-adv-x="928.6" />
+</font>
+</defs>
+</svg>

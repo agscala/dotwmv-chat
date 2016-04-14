@@ -10,13 +10,34 @@
 body {
     margin: 0;
     overflow-y: hidden;
-    font-family: "Courier New", Courier, monospace;
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 540px;
 }
 
 #messages-list {
-    max-height: 80vh;
-    min-height: 80vh;
+    height: 80%;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+@keyframes message-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .message {
@@ -25,8 +46,10 @@ body {
     height: 20vh;
     margin-bottom: 10px;
     clear: both;
-    border-top: 1px solid #DADADA;
-    border-bottom: 1px solid #DADADA;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    
+    animation: message-pop 0.2s ease;
 
     .message-content {
         float: left;
@@ -60,8 +83,9 @@ body {
     }
 
     .message-controls {
-        background-color: #DEDEDE;
+        background-color: #F5F5F5;
         width: 20%;
+        height: 20vh;
         text-align: center;
         font-size: 1.2em;
         font-weight: bold;
@@ -69,16 +93,38 @@ body {
         float: right;
 
         .copy-button {
-            height: 20vh;
+            color: #B0B0B0;
+            height: 50%;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 20px;
+            position: relative;
+            
+            i {
+                display: block;
+                height: 14px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+            }
+            
+            @media screen and (max-width: 325px) {
+                font-size: 16px;
+            }
         }
     }
 }
 
 .new-message {
-    width: 100%;
-    height: 20vh;
     position: relative;
-    box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+    width: 100%;
+    height: 20%;
+    position: relative;
+    box-shadow: 0px 0px 16px rgba(0,0,0,0.25);
+    background-color: #ffffff;
 
     .mode-selector {
         position: absolute;
@@ -106,7 +152,7 @@ body {
     .text-input,
     .draw-input {
         display: none;
-        height: 20vh;
+        height: 100%;
         box-sizing: border-box;
 
         &.selected-mode {
@@ -116,9 +162,13 @@ body {
 
     .text-input-container,
     .canvas-container {
-        float: left;
-        height: 20vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        height: 100%;
         width: 80%;
+        overflow: hidden;
 
         textarea {
             margin: 0;
@@ -130,10 +180,14 @@ body {
 
     .text-input-controls,
     .drawing-controls {
-        float: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
         width: 20%;
-        height: 20vh;
-        background-color: #DEDEDE;
+        height: 100%;
+        background-color: #F5F5F5;
+        overflow: hidden;
 
         .text-control,
         .draw-control {
@@ -143,38 +197,101 @@ body {
             font-weight: bold;
             cursor: pointer;
             
+            @media screen and (max-width: 325px) {
+                font-size: 90%;
+            }
+            
             &.selected {
-                color: white;
-                background-color: black;
+                background-color: #95D0FF;
             }
 
             &.text-submit,
             &.draw-submit {
-                height: 5vh;
+                height: 35%;
                 width: 100%;
                 background-color: green;
                 color: white;
                 clear: both;
+                font-size: 16px;
+                position: relative;
+                
+                @media screen and (max-width: 325px) {
+                    /*font-size: 11px;*/
+                }
+                
                 &.inactive {
                     background-color: gray;
                     pointer-events: none;
+                }
+                
+                .submit-text {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    height: 16px;
+                    line-height: 16px;
+                    
+                    i {
+                        text-align: center;
+                        /*margin-left: -1px;
+                        margin-right: -2px;*/
+                    }
                 }
             }
 
             &.draw-undo,
             &.draw-clear {
-                height: 5vh;
-                width: 100%;
-                clear: both;
+                height: 25%;
+                width: 50%;
+                float: left;
+                position: relative;
+                border-radius: 4px;
+                
+                i {
+                    position: absolute;
+                    height: 18px;
+                    display: block;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    font-size: 0.86em;
+                }
             }
 
             &.draw-small,
             &.draw-medium,
             &.draw-large,
             &.draw-eraser {
-                height: 5vh;
-                width: 25%;
+                height: 20%;
+                width: 50%;
                 float: left;
+                position: relative;
+                border-radius: 4px;
+                
+                i {
+                    position: absolute;
+                    height: 18px;
+                    display: block;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    font-size: 0.86em;
+                }
+            }
+            
+            &.draw-small i {
+                transform: scale(0.6);
+            }
+            &.draw-medium i {
+                transform: scale(0.8);
             }
         }
     }

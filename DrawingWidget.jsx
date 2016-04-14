@@ -84,7 +84,7 @@ DrawingWidget = React.createClass({
             $(this.refs.drawSubmit).removeClass("inactive").addClass("inactive");
             window.setTimeout(() => {
                 $(this.refs.drawSubmit).removeClass("inactive");
-            }, 4000);
+            }, 8000);
         }
     },
 
@@ -97,19 +97,19 @@ DrawingWidget = React.createClass({
                 <div className="drawing-controls">
                     <div
                         className={"draw-control draw-small " + (this.state.currentTool == TOOL_SMALL ? "selected" : "")}
-                        onClick={this.setSmall}>S</div>
+                        onClick={this.setSmall}><i className="icon-circle small"></i></div>
                     <div
                         className={"draw-control draw-medium " + (this.state.currentTool == TOOL_MEDIUM ? "selected" : "")}
-                        onClick={this.setMedium}>M</div>
+                        onClick={this.setMedium}><i className="icon-circle medium"></i></div>
                     <div
                         className={"draw-control draw-large " + (this.state.currentTool == TOOL_LARGE ? "selected" : "")}
-                        onClick={this.setLarge}>L</div>
+                        onClick={this.setLarge}><i className="icon-circle large"></i></div>
                     <div
                         className={"draw-control draw-eraser " + (this.state.currentTool == TOOL_ERASER ? "selected" : "")}
-                        onClick={this.setEraser}>E</div>
-                    <div className="draw-control draw-undo" onClick={this.undo}>Undo</div>
-                    <div className="draw-control draw-clear" onClick={this.clear}>Clear</div>
-                    <div className="draw-control draw-submit" ref="drawSubmit" onClick={this.send}>Send</div>
+                        onClick={this.setEraser}><i className="icon-circle-empty"></i></div>
+                    <div className="draw-control draw-undo" onClick={this.undo}><i className="icon-ccw"></i></div>
+                    <div className="draw-control draw-clear" onClick={this.clear}><i className="icon-cancel"></i></div>
+                    <div className="draw-control draw-submit" ref="drawSubmit" onClick={this.send}><span className="submit-text"><i className="icon-up-big"></i></span></div>
                 </div>
             </div>
         );

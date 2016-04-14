@@ -103,7 +103,7 @@ InputWidget = React.createClass({
                     </div>
 
                     <div className="text-input-controls">
-                        <div className="text-control text-submit" onClick={this.handleSubmit}>Send</div>
+                        <div className="text-control text-submit" onClick={this.handleSubmit}>SEND</div>
                     </div>
                 </div>
             </form>

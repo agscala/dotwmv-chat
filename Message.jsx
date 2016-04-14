@@ -25,7 +25,7 @@ Message = React.createClass({
                     <img className='drawing-image' src={this.props.message.image} />
                 </div>
                 <div className='message-controls'>
-                    <div className="copy-button" type="button" value="copy" onClick={this.handleCopy}>Copy</div>
+                    <div className="copy-button" type="button" value="copy" onClick={this.handleCopy}><i className="icon-down-big"></i></div>
                 </div>
             </div>
         );
