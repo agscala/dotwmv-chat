@@ -16,8 +16,8 @@ Message = React.createClass({
     },
 
     render() {
-        console.log(this.props.message);
         let textColorClass = (this.props.message.image || this.props.message.drawing) ? "white" : "black";
+        console.log(Math.random());
         return (
             <div className='message'>
                 <div className='message-content'>
@@ -25,6 +25,7 @@ Message = React.createClass({
                     <img className='drawing-image' src={this.props.message.image} />
                 </div>
                 <div className='message-controls'>
+                    <div className="avatar"><img src={'https://api.adorable.io/avatars/250/' + this.props.message.userId} /></div>
                     <div className="copy-button" type="button" value="copy" onClick={this.handleCopy}><i className="icon-down-big"></i></div>
                 </div>
             </div>

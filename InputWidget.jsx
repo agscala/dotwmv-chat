@@ -19,7 +19,6 @@ InputWidget = React.createClass({
 
     componentWillReceiveProps(nextProps) {
         if(nextProps.messageTemplate !== null) {
-            console.log(nextProps.messageTemplate);
             this.setState({
                 messageValue: nextProps.messageTemplate.text,
                 cameraData: nextProps.messageTemplate.image,
@@ -32,11 +31,21 @@ InputWidget = React.createClass({
 
         // insert into database
         var text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+        
+        if (localStorage.userId) {
+            var userId = localStorage.userId;
+        }
+        else {
+            var userId = Math.random();
+            localStorage.setItem('userId', userId);
+        }
+        
         Messages.insert({
             text: text,
             image: this.state.drawingImg,
             drawing: this.state.drawingData,
             createdAt: new Date(),
+            userId: userId,
         });
     },
 
@@ -57,7 +66,6 @@ InputWidget = React.createClass({
     },
 
     getDrawingData(canvasData, canvasImg) {
-        console.log(canvasImg);
         this.setState({drawingData: canvasData, drawingImg: canvasImg});
     },
 
