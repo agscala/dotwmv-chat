@@ -17,7 +17,7 @@ Message = React.createClass({
 
     render() {
         let textColorClass = (this.props.message.image || this.props.message.drawing) ? "white" : "black";
-        console.log(Math.random());
+        
         return (
             <div className='message'>
                 <div className='message-content'>
